@@ -2,6 +2,7 @@ import Utils.BinarySearch;
 import Utils.MergeSort;
 import Utils.NumberGenerator;
 import Utils.SecretMessage;
+import helpers.NumberOpcion;
 
 import java.util.Scanner;
 
@@ -13,10 +14,10 @@ public class Main {
 
         // Generar arreglo y preparar todo antes del menú
         int[] numeros = NumberGenerator.generarNumerosAleatorios(1000, 1000, 9999);
-        int claveMagica = NumberGenerator.seleccionarClave(numeros);
-        int margen = 5;
-        int minPista = Math.max(claveMagica - margen, 1000);
-        int maxPista = Math.min(claveMagica + margen, 9999);
+        int claveMagica;
+        int margen ;
+        int minPista;
+        int maxPista;
         String mensajeSecreto = SecretMessage.obtenerMensajeAleatorio();
 
         long tiempoInicioOrdenamiento = System.nanoTime();
@@ -35,6 +36,10 @@ public class Main {
 
             switch (opcion) {
                 case 1:
+                    claveMagica = NumberGenerator.seleccionarClave(numeros);
+                    margen = 5;
+                    minPista = Math.max(claveMagica - margen, 1000);
+                    maxPista = Math.min(claveMagica + margen, 9999);
                     iniciarMundoCaliz(scanner, numeros, claveMagica, mensajeSecreto, minPista, maxPista, tiempoInicioOrdenamiento, tiempoFinOrdenamiento);
                     break;
                 case 2:
@@ -72,7 +77,7 @@ public class Main {
 
         while (!encontrado) {
             System.out.println("\n🔍 Ingresa un número mágico para encontrar el mensaje secreto:");
-            int intento = scanner.nextInt();
+            int intento = NumberOpcion.GetOpcion();
 
             long tiempoInicioBusqueda = System.nanoTime();
             int indice = BinarySearch.buscar(numeros, intento);
