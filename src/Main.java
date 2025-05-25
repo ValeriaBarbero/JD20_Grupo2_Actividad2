@@ -90,6 +90,13 @@ public class Main {
                 System.out.println("\n⏱️ Tiempos de ejecución:");
                 System.out.printf("🌀 Ordenamiento (MergeSort): %.4f ms\n", (tiempoFinOrdenamiento - tiempoInicioOrdenamiento) / 1e6);
                 System.out.printf("🔎 Búsqueda binaria: %.4f ms\n", (tiempoFinBusqueda - tiempoInicioBusqueda) / 1e6);
+                System.out.println("\nComplejidad algorítmica:");
+                System.out.println("Merge Sort:");
+                System.out.println("  Mejor y peor caso: O(n log n)");
+                System.out.println("Búsqueda Binaria:");
+                System.out.println("  Mejor caso: O(1)");
+                System.out.println("  Caso promedio y peor caso: O(log n)");
+
             } else if (indice != -1) {
                 System.out.println("❌ Ese número está en el cáliz... pero no es el correcto. Intenta de nuevo.");
             } else {
